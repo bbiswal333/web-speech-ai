@@ -25,8 +25,10 @@ btnSend.addEventListener('click',() => {
 		
 		//outputYou.textContent = text;
 		$('.message-pane').append(' <p><span class="you" style="color:green"><b>You  :</b></span><em class="output-you">'+text+'</em></p>');
-		socket.emit('chat message', text);
+		$("div").scrollTop($("div").scrollTop()+2000);
 		inputText.value = "";
+		socket.emit('chat message', text);
+		
 	}
 });
 
@@ -37,8 +39,10 @@ function runScript(e) {
 			//inputText.value = "";
 			//outputYou.textContent = text;
 			$('.message-pane').append(' <p><span class="you" style="color:green"><b>You  :</b></span><em class="output-you">'+text+'</em></p>');
-			socket.emit('chat message', text);
+			$("div").scrollTop($("div").scrollTop()+2000);
 			inputText.value = "";
+			socket.emit('chat message', text);
+			
 			return false;
 		}
     }
@@ -90,4 +94,5 @@ socket.on('bot reply', function(replyText) {
   
   //
   $('.message-pane').append('<p><span class="bot" style="color:blue"><b>Bot  :</b></span><em class="output-bot">'+replyText+'</em></p>');
+  $("div").scrollTop($("div").scrollTop()+2000);
 });
