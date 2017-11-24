@@ -65,7 +65,11 @@ recognition.addEventListener('result', (e) => {
   let last = e.results.length - 1;
   let text = e.results[last][0].transcript;
 
-  outputYou.textContent = text;
+  //outputYou.textContent = text;
+  
+  $('.message-pane').append(' <p><span class="you" style="color:green"><b>You  :</b></span><em class="output-you">'+text+'</em></p>');
+  $("div").scrollTop($("div").scrollTop()+2000);
+  
   console.log('Confidence: ' + e.results[0][0].confidence);
 
   socket.emit('chat message', text);
@@ -76,7 +80,9 @@ recognition.addEventListener('speechend', () => {
 });
 
 recognition.addEventListener('error', (e) => {
-  outputBot.textContent = 'Error: ' + e.error;
+  //outputBot.textContent = 'Error: ' + e.error;
+  $('.message-pane').append('<p><span class="bot" style="color:blue"><b>Bot  :</b></span><em class="output-bot"> ERROR : '+e.error+'</em></p>');
+  $("div").scrollTop($("div").scrollTop()+2000);
 });
 
 function synthVoice(text) {
