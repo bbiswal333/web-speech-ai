@@ -1,7 +1,7 @@
 'use strict';
 
-const APIAI_TOKEN = process.env.APIAI_TOKEN;
-const APIAI_SESSION_ID = process.env.APIAI_SESSION_ID;
+const APIAI_TOKEN = 'c150909e652148a087e5b0c9b4e74168';//process.env.APIAI_TOKEN;
+const APIAI_SESSION_ID = 'cat';//process.env.APIAI_SESSION_ID;
 
 const express = require('express');
 const app = express();

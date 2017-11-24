@@ -89,3 +89,10 @@ button:focus {
 .fa-github::before {
     content: "\f09b";
 }
+.input-text{
+	width: 352px;
+    height: 37px;
+}
+.send-btn{
+	height: 37px;
+}

@@ -4,6 +4,8 @@ const socket = io();
 
 const outputYou = document.querySelector('.output-you');
 const outputBot = document.querySelector('.output-bot');
+const inputText = document.querySelector('.input-text');
+const btnSend =   document.querySelector('.send-btn');
 
 const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
 const recognition = new SpeechRecognition();
@@ -11,6 +13,31 @@ const recognition = new SpeechRecognition();
 recognition.lang = 'en-US';
 recognition.interimResults = false;
 recognition.maxAlternatives = 1;
+
+//
+btnSend.addEventListener('click',() => {
+	let text =  inputText.value;
+	if(text!=""){
+		inputText.value = "";
+		outputYou.textContent = text;
+		socket.emit('chat message', text);
+	}
+});
+
+function runScript(e) {
+    if (e.keyCode == 13) {
+        let text =  inputText.value;
+		if(text!=""){
+			inputText.value = "";
+			outputYou.textContent = text;
+			socket.emit('chat message', text);
+			return false;
+		}
+    }
+}
+
+//
+
 
 document.querySelector('button').addEventListener('click', () => {
   recognition.start();
