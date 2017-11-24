@@ -96,3 +96,7 @@ button:focus {
 .send-btn{
 	height: 37px;
 }
+.message-pane{
+	overflow-y:auto; 
+	height:200px;"
+}
